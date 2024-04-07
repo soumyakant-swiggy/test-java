@@ -13,19 +13,6 @@ management:
 spring:
   application:
     name: dynamic-pdf-generator
-  datasource:
-    oms-ds:
-      url: jdbc:postgresql://localhost:5432/orders_db?currentSchema=purchase_order_LOCAL
-      jdbcUrl: ${spring.datasource.oms-ds.url}
-      username: postgres
-      password: postgres
-      driver-class-name: org.postgresql.Driver
-  jpa:
-    generate-ddl: off
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: none
-    show-sql: false
 
 
 
