@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Invoice</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table thead tr th {
+            padding: 10px 20px 10px 20px;
+            line-height: 2;
+        }
+
+        table thead tr:last-child {
+            text-align: center;
+        }
+
+        table tbody tr td {
+            padding: 10px 20px 10px 20px;
+            text-align: center;
+        }
+
+        /*break row */
+        table tbody tr:nth-child(35n) {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+
+<table border="1px solid black" width="100%">
+    <thead>
+    <tr>
+        <th colspan="2">
+            Seller:
+            <br/>
+            <span th:text="${invoice.seller}"></span>
+            <br/>
+            <span th:text="${invoice.sellerAddress}"></span>
+            <br/>
+            <span th:text="'GSTIN: ' + ${invoice.sellerGstin}"></span>
+        </th>
+        <th colspan="2">
+            Buyer:
+            <br/>
+            <span th:text="${invoice.buyer}"></span>
+            <br/>
+            <span th:text="${invoice.buyerAddress}"></span>
+            <br/>
+            <span th:text="'GSTIN: ' + ${invoice.buyerGstin}"></span>
+        </th>
+    </tr>
+    <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Rate</th>
+        <th>Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item, iterStat: ${invoice.items}">
+        <td th:text="${item.name}" ></td>
+        <td th:text="${item.quantity}"></td>
+        <td th:text="${item.rate}"></td>
+        <td th:text="${item.amount}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,18 @@
+version: v1.0.0
+date: 01-04-2024
+
+server:
+  port: 8087
+  servlet:
+    context-path: /dfg
+
+management:
+  server:
+    port: 9889
+
+spring:
+  application:
+    name: dynamic-pdf-generator
+
+
+
